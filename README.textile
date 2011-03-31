@@ -1,0 +1,7 @@
+My "~/.sbt/plugins":https://github.com/harrah/xsbt/wiki/Plugins global plugins folder
+
+h2. Idea
+* Proof of concept for an Idea plugin for sbt 0.9.x
+* based on "sbt-idea":https://github.com/mpeltonen/sbt-idea, which generates idea projects for sbt 0.7.x
+* currently generates a semi-usable idea-project from a single module build.sbt based sbt 0.9.x project.
+
