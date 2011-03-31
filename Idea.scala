@@ -2,6 +2,15 @@ import sbt._
 import Keys._
 import xml.{Elem, Text, Node => XmlNode}
 
+/*
+ * Copyright (c) 2010, Mikko Peltonen, Jon-Anders Teigen, Michal Příhoda, Graham Tackley, Ismael Juma, Mikko Koponen, Odd Möller.
+ *
+ * Proof of concept of an Idea plugin for sbt 0.9.x (xsbt)
+ * Most of the code is taken from sbt-idea (https://github.com/mpeltonen/sbt-idea)
+ *
+ * The plugin can currently generate idea files for a fairly basic single module project defined using build.sbt
+ */
+
 object Idea extends Plugin {
   
   lazy val idea        = TaskKey[Unit]("idea")
