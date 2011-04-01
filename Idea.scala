@@ -29,10 +29,10 @@ object Idea extends Plugin {
     ideaTest <<= ideaPaths(Test))
     
   def ideaPaths(config:Configuration) = (
-    dependencyClasspath   in config,
-    sourceDirectories     in config,
-    resourceDirectories   in config,
-    classDirectory        in config
+    externalDependencyClasspath   in config,
+    sourceDirectories             in config,
+    resourceDirectories           in config,
+    classDirectory                in config
   ).map((a, b, c, d) => (a, b, c, d))
     
   def ideas = (ideaModule, ideaProject).map{ (a, b) => }
@@ -59,7 +59,7 @@ object Idea extends Plugin {
     val testDependencies  = _testDependencies.map(_.data.getAbsolutePath) filterNot dependencies.contains
     val testSources       = _testSources.map(relative)
     val testResources     = _testResources.map(relative)
-    val testClassDirectory    = relative(_testClassDirectory)
+    val testClassDirectory    = relative(_testClassDirectory)    
     
     /* create directories */    
     val dotIdeaDir   = new File(baseDirectory, ".idea")

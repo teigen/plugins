@@ -1,4 +1,5 @@
 My "~/.sbt/plugins":https://github.com/harrah/xsbt/wiki/Plugins global plugins folder
+It contains the following plugins
 
 h2. Idea
 * Proof of concept for an Idea plugin for sbt 0.9.x
