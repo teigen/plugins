@@ -21,17 +21,17 @@ object Idea extends Plugin {
   lazy val ideaTest    = TaskKey[(Seq[Attributed[File]], Seq[File], Seq[File], File)]("idea-test")
   
   override def settings = Seq(
-    idea <<= ideas, 
-    ideaModule <<= ideaModules, 
+    idea        <<= ideas, 
+    ideaModule  <<= ideaModules, 
     ideaProject <<= ideaProjects,
-    ideaBase <<= ideaBaseSettings,
+    ideaBase    <<= ideaBaseSettings,
     ideaCompile <<= ideaPaths(Compile),
-    ideaTest <<= ideaPaths(Test))
+    ideaTest    <<= ideaPaths(Test))
     
   def ideaPaths(config:Configuration) = (
     externalDependencyClasspath   in config,
-    sourceDirectories             in config,
-    resourceDirectories           in config,
+    unmanagedSourceDirectories    in config,
+    unmanagedResourceDirectories  in config,
     classDirectory                in config
   ).map((a, b, c, d) => (a, b, c, d))
     
@@ -40,7 +40,7 @@ object Idea extends Plugin {
   def ideaBaseSettings = (name, scalaInstance, baseDirectory, target).map((a, b, c, d) => (a, b, c, d))
     
   def ideaModules = (ideaBase, ideaCompile, ideaTest).map{ 
-      (ideaBase, compilePaths, testPaths) => 
+      (ideaBase, compilePaths, testPaths) =>       
     
     val (name, scalaInstance, baseDirectory, _target) = ideaBase
     // very quick and surprisingly dirty ;-)
