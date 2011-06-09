@@ -1,5 +1,1 @@
-sbtPlugin := true
-
-name := "xsbt-idea"
-
-organization := "com.jteigen"
+libraryDependencies += "org.sbtidea" %% "xsbt-idea" % "0.1"
